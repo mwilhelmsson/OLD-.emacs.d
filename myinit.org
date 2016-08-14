@@ -3,8 +3,9 @@
 * Small tweaks
 Disable startup message and toolbar
 #+BEGIN_SRC emacs-lisp
-(setq inhibit-startup-message t)
-(tool-bar-mode nil)
+  (setq inhibit-startup-message t)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
 #+END_SRC
 
 I'm too lazy to write 'yes' and 'no'
@@ -79,7 +80,7 @@ Backup and autosave is for cowards
 
 
   (use-package swiper
-  :ensure try
+  :ensure t
   :bind (("C-s" . swiper)
 	 ("C-r" . swiper)
 	 ("C-c C-r" . ivy-resume)
@@ -119,7 +120,6 @@ Install themes
 
     (use-package color-theme
                  :ensure t)
-
     (use-package zenburn-theme
                  :ensure t)
     (use-package tangotango-theme
@@ -131,6 +131,8 @@ Apparently, this is my current theme
   (load-theme 'tangotango t)
 #+END_SRC
 * Reveal.js
+
+Powerpoint and such require to much work
   #+BEGIN_SRC emacs-lisp
     (use-package ox-reveal
     :ensure ox-reveal)
@@ -141,9 +143,6 @@ Apparently, this is my current theme
     (use-package htmlize
     :ensure t)
   #+END_SRC
-
-  #+RESULTS:
-  : t
   
 * Flycheck
   #+BEGIN_SRC emacs-lisp
