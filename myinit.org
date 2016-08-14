@@ -1,7 +1,7 @@
 #+STARTUP: overview
 
 * Small tweaks
-Disable startup message and toolbar
+Disable startup message, menubar and toolbar
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
   (tool-bar-mode -1)
