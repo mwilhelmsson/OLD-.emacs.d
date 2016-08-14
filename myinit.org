@@ -1,11 +1,26 @@
 #+STARTUP: overview
 
-* interface tweaks
+* Small tweaks
+Disable startup message and toolbar
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
-(tool-bar-mode -1)
+(tool-bar-mode nil)
+#+END_SRC
+
+I'm too lazy to write 'yes' and 'no'
+#+BEGIN_SRC emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+I really want a refresh button
+#+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "<f5>") 'revert-buffer)
+#+END_SRC
+
+Backup and autosave is for cowards
+#+BEGIN_SRC emacs-lisp
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 #+END_SRC
 
 * try
