@@ -204,7 +204,7 @@ I want it to work with Slime as well
   (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 #+END_SRC
 * Magit
-Stolen from Magnar Sveen
+Shamelessly stolen from Magnar Sveen
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :ensure t)
