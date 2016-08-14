@@ -176,3 +176,31 @@ Apparently, this is my current theme
         (yas-global-mode 1))
 
   #+END_SRC
+* SLIME
+#+BEGIN_SRC emacs-lisp
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl")
+#+END_SRC
+* Paredit
+  I like parens
+#+BEGIN_SRC emacs-lisp
+  (use-package paredit
+    :ensure t
+    :config
+    (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+      (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+      (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+      (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+      (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+      (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+      (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
+#+END_SRC
+
+
+I want it to work with Slime as well
+#+BEGIN_SRC emacs-lisp
+  (defun override-slime-repl-bindings-with-paredit ()
+    (define-key slime-repl-mode-map
+      (read-kbd-macro paredit-backward-delete-key) nil))
+  (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+#+END_SRC
