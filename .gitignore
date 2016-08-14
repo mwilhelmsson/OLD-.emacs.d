@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Include vital files
+!init.el
+!myinit.org
+!.gitignore

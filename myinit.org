@@ -23,15 +23,7 @@
 	(which-key-mode))
   #+END_SRC
 
-
 * Org mode
-  Install org-mode
-#+BEGIN_SRC emacs-lisp
-  (use-package org
-    :ensure t
-    :config
-    (require 'org))
-#+END_SRC
   Org bullets makes things look pretty
   #+BEGIN_SRC emacs-lisp
   (use-package org-bullets

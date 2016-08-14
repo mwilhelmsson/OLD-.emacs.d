@@ -12,5 +12,9 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(use-package org
+  :ensure t
+  :config
+  (require 'org))
 
 (org-babel-load-file "~/.emacs.d/myinit.org")
