@@ -247,3 +247,12 @@ Shamelessly stolen from Magnar Sveen
   (global-set-key (kbd "C-x m") 'magit-status-fullscreen)
   (autoload 'magit-status-fullscreen "magit")
 #+END_SRC
+* Projectile
+I want to manage my projects in a sane way
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t)
+  (use-package counsel-projectile
+    :ensure t)
+  (projectile-global-mode)
+#+END_SRC
