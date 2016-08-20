@@ -23,7 +23,11 @@ Backup and autosave is for cowards
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 #+END_SRC
-
+* Fonts
+I like DejaVu Sans Mono
+#+BEGIN_SRC emacs-lisp
+  (set-frame-font "DejaVu Sans Mono-12")
+#+END_SRC
 * Try
 I like to try out packages without installing them for real
 #+BEGIN_SRC emacs-lisp
