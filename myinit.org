@@ -84,7 +84,7 @@ I like to try out packages without installing them for real
                ((equal direction 'left) (setq dj -1))
                ((equal direction 'right) (setq dj +1))
                (t (error "Not a valid direction, must be up down left right")))
-         (let* ((i1 (org-table-current-line))
+         (let* ((i1 (org-table-current-dline))
                 (j1 (org-table-current-column))
                 (i2 (+ i1 di))
                 (j2 (+ j1 dj)))
