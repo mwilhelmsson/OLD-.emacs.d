@@ -481,9 +481,13 @@ Well, vim owns ye all..
 #+END_SRC
 ** evil-leader 
 #+BEGIN_SRC emacs-lisp
-
   (use-package evil-leader
              :ensure t
              :init (global-evil-leader-mode)
              :config (evil-leader/set-leader ","))
+
+  (evil-leader/set-key
+    "e" 'find-file
+    "b" 'switch-to-buffer
+    "k" 'kill-buffer)
 #+END_SRC
