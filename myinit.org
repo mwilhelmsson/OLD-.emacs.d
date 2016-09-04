@@ -112,6 +112,24 @@ I like to try out packages without installing them for real
        (interactive)
        (org-table-move-single-cell 'right))
    #+END_SRC
+** Reveal.js
+
+ Powerpoint and such require to much work
+   #+BEGIN_SRC emacs-lisp
+     (use-package ox-reveal
+     :ensure ox-reveal)
+
+     (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+     (setq org-reveal-mathjax t)
+
+     (use-package htmlize
+     :ensure t)
+   #+END_SRC
+** ox-twbs
+   #+BEGIN_SRC emacs-lisp
+     (use-package ox-twbs
+       :ensure t)
+   #+END_SRC
 * Ace windows for easy window switching
   #+BEGIN_SRC emacs-lisp
   (use-package ace-window
@@ -195,19 +213,6 @@ Apparently, this is my current theme
 #+BEGIN_SRC emacs-lisp
   (load-theme 'tangotango t)
 #+END_SRC
-* Reveal.js
-
-Powerpoint and such require to much work
-  #+BEGIN_SRC emacs-lisp
-    (use-package ox-reveal
-    :ensure ox-reveal)
-
-    (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
-    (setq org-reveal-mathjax t)
-
-    (use-package htmlize
-    :ensure t)
-  #+END_SRC
   
 * Flycheck
   #+BEGIN_SRC emacs-lisp
@@ -442,4 +447,43 @@ I need to set some variables
   (setq send-mail-function (quote smtpmail-send-it))
   (setq smtpmail-smtp-server "mail.datahaxx.se")
   (setq smtpmail-smtp-service 587)
+#+END_SRC
+* EVIL
+Well, vim owns ye all..
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+               :ensure t
+               :init (evil-mode 1)
+               :config ;; Change color of mode line depending on evil state(insert/modified/regular emacs)
+               (lexical-let ((default-color (cons (face-background 'mode-line)
+                                                  (face-foreground 'mode-line))))
+                 (add-hook 'post-command-hook
+                           (lambda ()
+                             (let ((color (cond ((minibufferp) default-color)
+                                                ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+                                                ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+                                                ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                                                (t default-color))))
+                               (set-face-background 'mode-line (car color))
+                               (set-face-foreground 'mode-line (cdr color)))))))
+
+
+  (use-package key-chord
+               :ensure t
+               :init (key-chord-mode 1)
+               :config (key-chord-define evil-insert-state-map "jj" 'evil-normal-state))
+
+  (use-package evil-paredit
+               :ensure t
+               :init
+               (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
+               (add-hook 'lisp-mode-hook 'evil-paredit-mode))
+#+END_SRC
+** evil-leader 
+#+BEGIN_SRC emacs-lisp
+
+  (use-package evil-leader
+             :ensure t
+             :init (global-evil-leader-mode)
+             :config (evil-leader/set-leader ","))
 #+END_SRC
