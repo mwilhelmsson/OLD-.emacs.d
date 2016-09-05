@@ -18,9 +18,7 @@
   (require 'org))
 
 (org-babel-load-file "~/.emacs.d/myinit.org")
-<<<<<<< 13e524407724888aa749aa0ee738e027581656b5
 
-=======
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -39,4 +37,3 @@
  '(mode-line-buffer-id ((t (:foreground "#000000" :bold t))))
  '(mode-line-inactive ((t (:foreground "#000000" :background "#bbbbbb" :box nil))))
  '(which-func ((t (:foreground "#77aaff")))))
->>>>>>> va?
