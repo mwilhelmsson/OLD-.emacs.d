@@ -2,8 +2,9 @@
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
-
 (setq package-enable-at-startup nil)
 
 
@@ -12,7 +13,7 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(use-package org
+(use-package org-plus-contrib
   :ensure t
   :config
   (require 'org))
