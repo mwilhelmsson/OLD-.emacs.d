@@ -8,6 +8,11 @@ Disable startup message, menubar and toolbar
   (menu-bar-mode -1)
 #+END_SRC
 
+Sometimes I want the menubar to look up keybindings
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<f12>") 'menu-bar-mode)
+#+END_SRC
+
 I'm too lazy to write 'yes' and 'no'
 #+BEGIN_SRC emacs-lisp
 (fset 'yes-or-no-p 'y-or-n-p)
