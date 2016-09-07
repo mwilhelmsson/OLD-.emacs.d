@@ -39,6 +39,7 @@ I like DejaVu Sans Mono
 #+BEGIN_SRC emacs-lisp
   (set-frame-font "DejaVu Sans Mono-12")
 #+END_SRC
+
 * Try
 I like to try out packages without installing them for real
 #+BEGIN_SRC emacs-lisp
@@ -220,11 +221,17 @@ Install themes
   #+BEGIN_SRC emacs-lisp
 
     (use-package color-theme
-                 :ensure t)
+      :ensure t)
     (use-package zenburn-theme
-                 :ensure t)
+      :ensure t)
     (use-package tangotango-theme
-                 :ensure t)
+      :ensure t)
+    (use-package white-sand-theme
+      :ensure t)
+    (use-package moe-theme
+      :ensure t)
+    (use-package solarized-theme
+      :ensure t)
   #+END_SRC
 
 Apparently, this is my current theme
@@ -240,6 +247,7 @@ Apparently, this is my current theme
       (global-flycheck-mode t))
 
   #+END_SRC
+
 * Python
   #+BEGIN_SRC emacs-lisp
     (use-package jedi
@@ -255,6 +263,7 @@ Apparently, this is my current theme
       (elpy-enable))
 
   #+END_SRC
+
 * Yasnippet
   #+BEGIN_SRC emacs-lisp
     (use-package yasnippet
@@ -263,6 +272,7 @@ Apparently, this is my current theme
         (yas-global-mode 1))
 
   #+END_SRC
+
 * SLIME
 Slime is nice
 #+BEGIN_SRC emacs-lisp
@@ -275,6 +285,7 @@ I need autocomplete with my slime
   (use-package ac-slime
     :ensure t)
 #+END_SRC
+
 * Paredit
   I like parens
 #+BEGIN_SRC emacs-lisp
@@ -298,6 +309,7 @@ I want it to work with Slime as well
       (read-kbd-macro paredit-backward-delete-key) nil))
   (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 #+END_SRC
+
 * Magit
 Shamelessly stolen from Magnar Sveen
 #+BEGIN_SRC emacs-lisp
@@ -341,6 +353,7 @@ Shamelessly stolen from Magnar Sveen
   (global-set-key (kbd "C-x m") 'magit-status-fullscreen)
   (autoload 'magit-status-fullscreen "magit")
 #+END_SRC
+
 * Projectile
 I want to manage my projects in a sane way
 #+BEGIN_SRC emacs-lisp
@@ -350,6 +363,7 @@ I want to manage my projects in a sane way
     :ensure t)
   (projectile-global-mode)
 #+END_SRC
+
 * Powerline
 I want a pretty modeline
 #+BEGIN_SRC emacs-lisp
@@ -457,6 +471,7 @@ Why not just steal a theme from Howard Abrams?
 
   (powerline-ha-theme)
 #+END_SRC
+
 * GNUS
 I need to set some variables
 #+BEGIN_SRC emacs-lisp
@@ -466,6 +481,7 @@ I need to set some variables
   (setq smtpmail-smtp-server "mail.datahaxx.se")
   (setq smtpmail-smtp-service 587)
 #+END_SRC
+
 * EVIL
 Well, vim owns ye all..
 #+BEGIN_SRC emacs-lisp
@@ -497,6 +513,7 @@ Well, vim owns ye all..
                (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
                (add-hook 'lisp-mode-hook 'evil-paredit-mode))
 #+END_SRC
+
 ** evil-leader 
 #+BEGIN_SRC emacs-lisp
   (use-package evil-leader
@@ -511,3 +528,5 @@ Well, vim owns ye all..
     "s" 'swiper
     "x" 'counsel-M-x)
 #+END_SRC
+
+
