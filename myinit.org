@@ -57,6 +57,8 @@ I like to try out packages without installing them for real
   #+END_SRC
 
 * Org mode
+Will use [[http://doc.norang.ca/org-mode.html]] as inspiration for this.
+** I want things to be pretty
   Org bullets makes things look pretty
   #+BEGIN_SRC emacs-lisp
   (use-package org-bullets
@@ -64,7 +66,17 @@ I like to try out packages without installing them for real
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
   #+END_SRC
-
+** Key binding
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key "\C-cl" 'org-store-link)
+     (global-set-key "\C-ca" 'org-agenda)
+     (global-set-key "\C-cb" 'org-iswitchb)
+   #+END_SRC
+** Agenda
+   
+   #+BEGIN_SRC emacs-lisp
+     (setq org-agenda-files (quote ("~/org/agenda")))
+   #+END_SRC
 ** Move single cell in tables
    #+BEGIN_SRC emacs-lisp
      ;; Move single cells using C-M-up C-M-down C-M-left C-M-right
