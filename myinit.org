@@ -8,6 +8,11 @@ Disable startup message, menubar and toolbar
   (menu-bar-mode -1)
 #+END_SRC
 
+Scroll bars are lame
+#+BEGIN_SRC emacs-lisp
+  (scroll-bar-mode -1)
+#+END_SRC
+
 Sometimes I want the menubar to look up keybindings
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "<f12>") 'menu-bar-mode)
@@ -58,15 +63,8 @@ I like to try out packages without installing them for real
 
 * Org mode
 Will use [[http://doc.norang.ca/org-mode.html]] as inspiration for this.
-** I want things to be pretty
-  Org bullets makes things look pretty
-  #+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-  #+END_SRC
-** Key binding
+
+** Key bindings
    #+BEGIN_SRC emacs-lisp
      (global-set-key "\C-cl" 'org-store-link)
      (global-set-key "\C-ca" 'org-agenda)
@@ -244,11 +242,15 @@ Install themes
       :ensure t)
     (use-package solarized-theme
       :ensure t)
+    (use-package material-theme
+      :ensure t)
+    (use-package tronesque-theme
+      :ensure t)
   #+END_SRC
 
 Apparently, this is my current theme
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'tangotango t)
+  (load-theme 'tronesque t)
 #+END_SRC
   
 * Flycheck
@@ -267,12 +269,9 @@ Apparently, this is my current theme
       :init
       (add-hook 'python-mode-hook 'jedi:setup)
       (add-hook 'python-mode-hook 'jedi:ac-setup))
-      
 
-      (use-package elpy
-      :ensure t
-      :config 
-      (elpy-enable))
+    (use-package elpy
+      :ensure t)
 
   #+END_SRC
 
