@@ -24,6 +24,3 @@
  (setq send-mail-function (quote smtpmail-send-it))
  (setq smtpmail-smtp-server "mail.datahaxx.se")
  (setq smtpmail-smtp-service 587)
-
-
-
