@@ -246,11 +246,13 @@ Install themes
       :ensure t)
     (use-package tronesque-theme
       :ensure t)
+    (use-package professional-theme
+      :ensure t)
   #+END_SRC
 
 Apparently, this is my current theme
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'tronesque t)
+  (load-theme 'professional t)
 #+END_SRC
   
 * Flycheck
