@@ -158,7 +158,18 @@ Will use [[http://doc.norang.ca/org-mode.html]] as inspiration for this.
      (require 'org-contacts)
      (setq org-contacts-files '("~/org/contacts.org"))
    #+END_SRC
-
+** org-babel
+   Load the languages I want to use
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (C . t)
+     (lisp . t)
+     (python . t)
+     (shell . t)
+     ))
+#+END_SRC
 * Ace windows for easy window switching
   #+BEGIN_SRC emacs-lisp
   (use-package ace-window
@@ -230,27 +241,14 @@ Will use [[http://doc.norang.ca/org-mode.html]] as inspiration for this.
 Install themes
   #+BEGIN_SRC emacs-lisp
 
-    (use-package color-theme
-      :ensure t)
-    (use-package zenburn-theme
-      :ensure t)
-    (use-package tangotango-theme
-      :ensure t)
-    (use-package white-sand-theme
-      :ensure t)
+
     (use-package moe-theme
-      :ensure t)
-    (use-package solarized-theme
-      :ensure t)
-    (use-package material-theme
-      :ensure t)
-    (use-package tronesque-theme
       :ensure t)
   #+END_SRC
 
 Apparently, this is my current theme
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'tronesque t)
+  (load-theme 'moe-light t)
 #+END_SRC
   
 * Flycheck
