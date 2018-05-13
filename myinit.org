@@ -246,30 +246,13 @@ Will use [[http://doc.norang.ca/org-mode.html]] as inspiration for this.
 * Themes
 Install themes
   #+BEGIN_SRC emacs-lisp
-
-
     (use-package moe-theme
       :ensure t)
-<<<<<<< HEAD
-=======
-    (use-package solarized-theme
-      :ensure t)
-    (use-package material-theme
-      :ensure t)
-    (use-package tronesque-theme
-      :ensure t)
-    (use-package professional-theme
-      :ensure t)
->>>>>>> origin/master
   #+END_SRC
 
 Apparently, this is my current theme
 #+BEGIN_SRC emacs-lisp
-<<<<<<< HEAD
   (load-theme 'moe-light t)
-=======
-  (load-theme 'leuven t)
->>>>>>> origin/master
 #+END_SRC
   
 * Flycheck
@@ -303,19 +286,6 @@ Apparently, this is my current theme
 
   #+END_SRC
 
-* SLIME
-Slime is nice
-#+BEGIN_SRC emacs-lisp
-  (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  (setq inferior-lisp-program "sbcl")
-#+END_SRC
-
-I need autocomplete with my slime
-#+BEGIN_SRC emacs-lisp
-  (use-package ac-slime
-    :ensure t)
-#+END_SRC
-
 * Paredit
   I like parens
 #+BEGIN_SRC emacs-lisp
@@ -330,16 +300,6 @@ I need autocomplete with my slime
       (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
       (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
 #+END_SRC
-
-
-I want it to work with Slime as well
-#+BEGIN_SRC emacs-lisp
-  (defun override-slime-repl-bindings-with-paredit ()
-    (define-key slime-repl-mode-map
-      (read-kbd-macro paredit-backward-delete-key) nil))
-  (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
-#+END_SRC
-
 * Magit
 Shamelessly stolen from Magnar Sveen
 #+BEGIN_SRC emacs-lisp
